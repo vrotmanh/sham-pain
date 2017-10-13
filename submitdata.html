@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="css/dashboard.css" type="text/css">
+<link rel="stylesheet" href="css/datatables.css" type="text/css">
+<link rel="stylesheet" href="css/fontawesome.css" type="text/css">
+<link rel="stylesheet" href="css/roboto.css" type="text/css">
+<link rel="stylesheet" href="css/select.css" type="text/css">
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="js/application.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/cable.js"></script>
+<script type="text/javascript" src="js/dashboard.js"></script>
+<script type="text/javascript" src="js/datatables.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+<script type="text/javascript" src="js/mainland.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/mootools.js"></script>
+<script type="text/javascript" src="js/proj4.js"></script>
+<script type="text/javascript" src="js/select.js"></script>
+
+    <title>Lannett</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" /> 
+ 
+
+  </head>
+
+  <body>
+        <div class="wrapper">
+        <div class="sidebar" data-color="purple" data-image="assets/images/sidebar-5.jpg">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                 <a href="home.html" class="simple-text">        
+                    Panalgo.io
+                </a>
+            </div>
+
+            <ul class="nav">
+               
+    <li><a href="dashboard.html">Dashboard</a></li>
+
+    <li class="active"><a href="submitdata.html">Submit Data</a></li>
+ 
+        </ul>
+    </div>
+</div>
+
+<div class="main-panel">
+    <nav class="navbar fixed-top navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""></a>
+            </div>
+            <div class="collapse navbar-collapse">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <p>Log out</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="content">
+        <div class="container-fluid">
+
+
+
+       
+    <!-- Table Row -->
+        <div class="row">
+            <div class="container-fluid" align="center">
+
+<h3 class="title" align="center"><strong>Data Entry Form</strong></h2>
+            <div id="map1" class="card ">
+                    <div class="header">
+                        <h4 class="title">Please Enter Your Recent Risk Factor History</h4>
+		                        <div class="content">
+			                        <p class="category"><br></p>
+			                        <p class="category"> </p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category">1. Please enter your current perceived stress level</p>
+			                        <p class="category"> </p>
+			                        <div id="stress"></div>
+
+									<p class="category"><span id="stress-value"></span></p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>2. Please enter your current perceived anxiety level</p>
+			                        <p class="category"> </p>
+			                        <div id="anxiety"></div>
+
+									<p class="category"><span id="anxiety-value"></span></p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>3. How many hours of sleep did you get last night? </p>
+			                        <p class="category"> </p>
+			                        <input id="sleep" type="number">
+			                   
+		                		</div>
+		                		
+		                		<div class="content" align="center">
+			                        <p class="category"  align="center"><br>4. Have you had ANY chocolate today?</p>
+			                         <p class="category"  align="center">
+			                        	<label class="switch" style="background-color: white !important;">
+										  <input id="chocolate" type="checkbox">
+										  <span class="slider round"></span>
+										</label>
+									</p>
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>5. Have you had ANY cheese today?</p>
+			                        <p class="category"  align="center">
+			                        	<label class="switch" style="background-color: white !important;">
+										  <input id="cheese" type="checkbox">
+										  <span class="slider round"></span>
+										</label>
+									</p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>6. Have you experienced a sinus flare-up today?</p>
+			                       <p class="category"  align="center">
+			                        	<label class="switch" style="background-color: white !important;">
+										  <input id="sinus" type="checkbox">
+										  <span class="slider round"></span>
+										</label>
+									</p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>7. Have you had any caffeine today? </p>
+			                        <p class="category"  align="center">
+			                        	<label class="switch" style="background-color: white !important;">
+										  <input id="caffeine" type="checkbox">
+										  <span class="slider round"></span>
+										</label>
+									</p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <p class="category"><br>8. Have you skipped any meal(s) today? </p>
+			                        <p class="category"  align="center">
+			                        	<label class="switch" style="background-color: white !important;">
+										  <input id="skippedmeals" type="checkbox">
+										  <span class="slider round"></span>
+										</label>
+									</p>
+			                   
+		                		</div>
+		                		<div class="content">
+			                        <button id="mainsubmit" type="button">Upload and Run Algorithm</button>
+			                   
+		                		</div>
+
+                    </div>
+                  
+             </div>
+
+            </div>
+           
+        </div>
+        <!-- /.row -->  
+
+    </div>
+</div>
+  <div id="popup">
+        <h4>Results</h4>
+        <p>Your Migraine Prediction in a 5-hour window is: <span id="prediction-result"></span></p>
+        <a href="dashboard.html" id="close_popup">Close</a>
+    </div>
+    <a href="#popup" id="open_popup">Open popup</a>
+
+<footer class="footer">
+    <div class="container-fluid">
+
+    </div>
+</footer>
+  </body>
+
+
+</html>
+<script>
+
+var stressval = 0;
+var anxietyval = 0;
+
+$("#stress").slider(
+{
+            value:0,
+            min: 0,
+            max: 100,
+            step: 10,
+            slide: function( event, ui ) {
+                $( "#stress-value" ).html( ui.value );
+                stressval = ui.value;
+            }
+}
+);
+
+$( "#stress-value" ).html(  $('#stress').slider('value') );
+
+$("#anxiety").slider(
+{
+            value:0,
+            min: 0,
+            max: 100,
+            step: 10,
+            slide: function( event, ui ) {
+                $( "#anxiety-value" ).html( ui.value );
+                anxietyval = ui.value;
+            }
+}
+);
+
+$( "#anxiety-value" ).html(  $('#anxiety').slider('value') );
+
+
+
+$('#mainsubmit').on('click', function(){
+
+var chocolateval = $('#chocolate:checked').val() == "on";
+var cheeseval = $('#cheese:checked').val() == "on";
+
+var sinusval = $('#sinus:checked').val() == "on";
+
+var caffeineval = $('#caffeine:checked').val() == "on";
+
+var skippedmealsval = $('#skippedmeals:checked').val() == "on";
+
+	$.post( "http://pain-team.herokuapp.com/report", 
+		{ 
+			user_id: 1, 
+			stress: stressval,
+			anxiety: anxietyval,
+			sleep_time: 8,
+			chocolate: chocolateval,
+			cheese: cheeseval,
+			sinus: sinusval,
+			caffeine: caffeineval,
+			skipped_meal: skippedmealsval
+	},
+	function(result){
+
+    $("#popup").css("display", "block");
+    var res;
+    if(result.result)
+    	res = "High Risk";
+    else
+    	res = "Safe";
+     
+    $("#prediction-result").html(res);
+
+
+  $("#close_popup").click(function(){
+    $("#popup").css("display", "none");
+  }); 
+
+	}
+	);
+});
+
+</script>
+
+
+
+
